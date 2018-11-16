@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
     title: 'Anders Rubini',
@@ -27,11 +31,10 @@ module.exports = {
         hostingWPCOM: true,
         useACF: false,
         auth: {
-          wpcom_app_clientSecret:
-            '96P90SPd7Am7juLJvJzTAnDQwlIOte8BeQBk44yrsdrvMSVFCwRpSGjV3Gv14aSI',
-          wpcom_app_clientId: '63875',
-          wpcom_user: 'bernard.logan4@gmail.com',
-          wpcom_pass: '34outDAdoor',
+          wpcom_app_clientSecret: process.env.WORDPRESS_SECRET,
+          wpcom_app_clientId: process.env.WORDPRESS_ID,
+          wpcom_user: process.env.WORDPRESS_EMAIL,
+          wpcom_pass: process.env.WORDPRESS_PASSWORD,
         },
       },
     },
