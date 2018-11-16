@@ -19,5 +19,21 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-resolve-src',
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        baseUrl: 'andyrubini.wordpress.com',
+        protocol: 'https',
+        hostingWPCOM: true,
+        useACF: false,
+        auth: {
+          wpcom_app_clientSecret:
+            '96P90SPd7Am7juLJvJzTAnDQwlIOte8BeQBk44yrsdrvMSVFCwRpSGjV3Gv14aSI',
+          wpcom_app_clientId: '63875',
+          wpcom_user: 'bernard.logan4@gmail.com',
+          wpcom_pass: '34outDAdoor',
+        },
+      },
+    },
   ],
 }

@@ -5,10 +5,11 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import './layout.css'
-import { type } from 'styles'
+import { colors, type } from 'styles'
 
 const PageContainer = styled.div`
-  font-family: ${type.family};
+  padding-bottom: 120px;
+  font-family: ${type.families.body};
   font-size: ${type.regular};
 `
 
