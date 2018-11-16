@@ -1,3 +1,13 @@
+import AirbnbCereal from 'assets/fonts/AirbnbCereal-Book.ttf'
+import OdudoSlabBold from 'assets/fonts/OdudoSlab-Bold.woff2'
+import OdudoSlabBoldOblique from 'assets/fonts/OdudoSlab-BoldOblique.woff2'
+import OdudoSlabLight from 'assets/fonts/OdudoSlab-Light.woff2'
+import OdudoSlabLightOblique from 'assets/fonts/OdudoSlab-LightOblique.woff2'
+import OdudoSlabRegular from 'assets/fonts/OdudoSlab-Regular.woff2'
+import OdudoSlabRegularOblique from 'assets/fonts/OdudoSlab-RegularOblique.woff2'
+import OdudoSlabSemiBold from 'assets/fonts/OdudoSlab-SemiBold.woff2'
+import OdudoSlabSemiBoldOblique from 'assets/fonts/OdudoSlab-SemiBoldOblique.woff2'
+
 const families = {
   display: 'Odudo Slab',
   body: 'Airbnb Cereal App',
@@ -22,4 +32,15 @@ export default {
   families,
   weights,
   sizes,
+  fonts: {
+    AirbnbCereal,
+    OdudoSlabBold,
+    OdudoSlabBoldOblique,
+    OdudoSlabSemiBold,
+    OdudoSlabSemiBoldOblique,
+    OdudoSlabRegular,
+    OdudoSlabRegularOblique,
+    OdudoSlabLight,
+    OdudoSlabLightOblique,
+  },
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { injectGlobal } from 'styled-components'
 import { graphql, navigate } from 'gatsby'
 
 import { colors, type } from 'styles'
