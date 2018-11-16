@@ -11,6 +11,7 @@ import heroImage from 'assets/images/hero.png'
 const HeroContainer = styled.section`
   background-image: url(${heroImage});
   background-repeat: no-repeat;
+  background-size: cover;
 `
 
 // ================================================
