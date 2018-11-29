@@ -46,6 +46,11 @@ template {
 a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
+  font-style: italic;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: underline;
+  color: #e63e3e;
 }
 a:active,
 a:hover {

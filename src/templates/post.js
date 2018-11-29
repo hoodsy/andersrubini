@@ -1,42 +1,41 @@
 import React, { Component } from 'react'
-import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
-import Img from 'gatsby-image'
+import styled from 'styled-components'
+import { graphql } from 'gatsby'
+
+import { colors, type } from 'styles'
+import Layout from 'components/layout'
+import Nav from 'components/Nav'
+import Link from 'components/Link'
+import Footer from 'components/Footer'
+
+const BlogContainer = styled.article`
+  padding: 30px 20px;
+  background: ${colors.white};
+`
+const BlogTitle = styled.h1`
+  margin: 10px 0 20px;
+  font-family: ${type.families.display};
+  font-weight: 500;
+  font-size: ${type.sizes.xlarge};
+`
+const BlogBody = styled.p`
+  margin-bottom: 0;
+`
 
 class PostTemplate extends Component {
   render() {
     const post = this.props.data.wordpressPost
 
     return (
-      <div>
-        <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
-        {post.acf &&
-          post.acf.page_builder_post &&
-          post.acf.page_builder_post.map((layout, i) => {
-            if (layout.__typename === `WordPressAcf_image_gallery`) {
-              return (
-                <div key={`${i} image-gallery`}>
-                  <h2>ACF Image Gallery</h2>
-                  {layout.pictures.map(({ picture }) => {
-                    const img = picture.localFile.childImageSharp.fluid
-                    return <Img key={img.src} fluid={img} />
-                  })}
-                </div>
-              )
-            }
-            if (layout.__typename === `WordPressAcf_post_photo`) {
-              const img = layout.photo.localFile.childImageSharp.fluid
-              return (
-                <div key={`${i}-photo`}>
-                  <h2>ACF Post Photo</h2>
-                  <Img src={img.src} fluid={img} />
-                </div>
-              )
-            }
-            return null
-          })}
-      </div>
+      <Layout>
+        <Nav />
+        <BlogContainer>
+          <BlogTitle dangerouslySetInnerHTML={{ __html: post.title }} />
+          <BlogBody dangerouslySetInnerHTML={{ __html: post.content }} />
+        </BlogContainer>
+        <Footer />
+      </Layout>
     )
   }
 }

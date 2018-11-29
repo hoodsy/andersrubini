@@ -75,7 +75,6 @@ const GlobalStyles = createGlobalStyle`
 `
 
 const PageContainer = styled.div`
-  padding-bottom: 120px;
   font-family: ${type.families.body};
   font-size: ${type.regular};
 `

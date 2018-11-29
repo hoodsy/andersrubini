@@ -26,6 +26,7 @@ const sizes = {
   regular: '16px',
   medium: '1.15rem',
   large: '1.3rem',
+  xlarge: '1.75rem',
 }
 
 export default {

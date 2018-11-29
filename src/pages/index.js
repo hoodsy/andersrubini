@@ -4,8 +4,9 @@ import { graphql, navigate } from 'gatsby'
 
 import { colors, type } from 'styles'
 import Layout from 'components/layout'
+import Nav from 'components/Nav'
+import Footer from 'components/Footer'
 import Link from 'components/Link'
-import { Instagram } from 'styled-icons/feather'
 import heroImage from 'assets/images/hero.png'
 
 const HeroContainer = styled.section`
@@ -39,29 +40,6 @@ const Title = styled.h1`
   font-weight: ${type.weights.regular};
   font-style: italic;
   font-family: ${type.families.display};
-`
-
-// ================================================
-// Nav
-// ================================================
-const Nav = styled.nav`
-  display: flex;
-  margin-top: 60px;
-  margin-left: 40px;
-  padding: 20px 0 10px;
-  border-bottom: 2px solid ${colors.primary};
-`
-/* const NavLink = styled.a` */
-const NavLink = styled(Link)`
-  padding-right: 25px;
-`
-const NavInstaLink = styled.a`
-  margin-left: auto;
-  padding-right: 20px;
-`
-const InstaIcon = styled(Instagram)`
-  color: ${colors.white};
-  stroke-width: 2;
 `
 
 // ================================================
@@ -133,12 +111,6 @@ const BlogTitle = styled.h1`
 const BlogExcerpt = styled.p`
   margin-bottom: 0;
 `
-const BlogLink = styled(Link)`
-  font-style: italic;
-  font-size: ${type.sizes.small};
-  text-decoration: underline;
-  color: ${colors.primary};
-`
 
 // ================================================
 // Gallery
@@ -167,31 +139,8 @@ const GalleryImage = styled.img`
   }
 `
 
-// ================================================
-// Contact
-// ================================================
-const ContactContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 120px 20px;
-  text-align: center;
-`
-const ContactText = styled.p`
-  color: ${colors.white};
-  margin: 0;
-`
-const ContactLink = styled.a`
-  margin-top: 10px;
-  color: ${colors.primary};
-  font-size: ${type.sizes.large};
-  font-weight: 500;
-  text-decoration: underline;
-`
-
 const IndexPage = ({ data }) => (
-  <Layout onClick={console.log(data)}>
+  <Layout>
     <HeroContainer>
       <TitleBox>
         <TitleLabel>coach & chef</TitleLabel>
@@ -200,15 +149,7 @@ const IndexPage = ({ data }) => (
       </TitleBox>
     </HeroContainer>
 
-    <Nav>
-      <NavLink to="#about">about</NavLink>
-      <NavLink to="#blog">blog</NavLink>
-      <NavLink to="#gallery">gallery</NavLink>
-      <NavLink to="#contact">contact</NavLink>
-      <NavInstaLink href="https://instagram.com" target="_blank">
-        <InstaIcon size={24} />
-      </NavInstaLink>
-    </Nav>
+    <Nav />
 
     <AboutContainer id="about">
       <AboutBody>
@@ -229,6 +170,11 @@ const IndexPage = ({ data }) => (
           <br />
           Apart from that he is also a professional chef and has a great passion
           for food.
+          <br />
+          <br />
+          He now helps people achieving their physical goals in a fun and
+          playful way. Using tools such as Gymnastic Rings, Olympic lifts,
+          powerlifting, sprinting, jumping, crawling and much, much more!
         </AboutText>
       </AboutBody>
     </AboutContainer>
@@ -242,9 +188,8 @@ const IndexPage = ({ data }) => (
             key={node.id}
           >
             <BlogItemLine />
-            <BlogTitle>{node.title}</BlogTitle>
+            <BlogTitle dangerouslySetInnerHTML={{ __html: node.title }} />
             <BlogExcerpt dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            <BlogLink>Read More</BlogLink>
           </BlogItem>
         ))}
       </BlogBody>
@@ -257,15 +202,7 @@ const IndexPage = ({ data }) => (
       ))}
     </GalleryContainer>
 
-    <ContactContainer id="contact">
-      <ContactText>Ready to get in the best shape of your life?</ContactText>
-      <ContactLink
-        href="https://goo.gl/forms/uKBsvOKQWOJXz2Wg1"
-        target="_blank"
-      >
-        Get in touch
-      </ContactLink>
-    </ContactContainer>
+    <Footer />
   </Layout>
 )
 
