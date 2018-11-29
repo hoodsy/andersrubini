@@ -47,13 +47,11 @@ const Title = styled.h1`
 // ================================================
 const AboutContainer = styled.section`
   margin: 120px 0;
-  padding: 0 20px;
 `
 const AboutBody = styled.article`
   position: relative;
   padding: 40px 20px;
   background: ${colors.white};
-  border-radius: 3px;
 `
 const AboutLabel = styled.label`
   position: absolute;
@@ -96,6 +94,11 @@ const BlogItem = styled.article`
   background: ${colors.white};
   border-radius: 3px;
   box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease-in;
+  &:hover {
+    box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
 `
 const BlogItemLine = styled.div`
   height: 2px;
@@ -116,6 +119,8 @@ const BlogExcerpt = styled.p`
 // Gallery
 // ================================================
 const GalleryContainer = styled.section`
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
   padding: 120px 20px;
   background-color: ${colors.white};
@@ -130,13 +135,27 @@ const GalleryLabel = styled.label`
   color: ${colors.white};
   font-family: ${type.families.display};
 `
-const GalleryImage = styled.img`
+const GalleryImageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ${colors.black};
   width: calc(50% - 1px);
-  height: 128px;
+  height: 256px;
   margin: 0;
+  margin-bottom: 2px;
   &:nth-child(even) {
     margin-right: 2px;
   }
+  @media (min-width: 992px) {
+    width: calc(33% - 2px);
+    margin-right: 2px;
+  }
+`
+const GalleryImage = styled.img`
+  height: 100%;
+  margin: 0;
+  object-fit: contain;
 `
 
 const IndexPage = ({ data }) => (
@@ -198,7 +217,9 @@ const IndexPage = ({ data }) => (
     <GalleryContainer id="gallery">
       <GalleryLabel>gallery</GalleryLabel>
       {data.allWordpressWpMedia.edges.map(({ node }) => (
-        <GalleryImage src={node.source_url} key={node.id} />
+        <GalleryImageContainer>
+          <GalleryImage src={node.source_url} key={node.id} />
+        </GalleryImageContainer>
       ))}
     </GalleryContainer>
 

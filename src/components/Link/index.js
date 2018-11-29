@@ -8,4 +8,7 @@ export default styled(Link)`
   font-family: ${type.families.display};
   color: ${props => props.color || colors.white};
   text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 `
