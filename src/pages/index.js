@@ -8,11 +8,16 @@ import Nav from 'components/Nav'
 import Footer from 'components/Footer'
 import Link from 'components/Link'
 import heroImage from 'assets/images/hero.png'
+import heroImageLarge from 'assets/images/heroImageLarge.png'
 
 const HeroContainer = styled.section`
   background-image: url(${heroImage});
   background-repeat: no-repeat;
   background-size: cover;
+  @media (min-width: 768px) {
+    background-image: url(${heroImageLarge});
+    background-position: center;
+  }
 `
 
 // ================================================
