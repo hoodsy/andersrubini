@@ -9,68 +9,58 @@ import { colors, type } from 'styles'
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
-    font-family: 'Odudo Slab';
+    font-family: '${type.families.body}';
+    font-style: normal;
+    font-weight: normal;
+    src: url('${type.fonts.AirbnbCereal}') format('truetype');
+  }
+  @font-face {
+    font-family: '${type.families.display}';
     font-style: normal;
     font-weight: 700;
-    src: local('Odudo Slab'), url('${
-      type.fonts.OdudoSlabBold
-    }') format('woff2');
+    src: url('${type.fonts.OdudoSlabBold}') format('woff2');
   }
   @font-face {
-    font-family: 'Odudo Slab';
+    font-family: '${type.families.display}';
     font-style: italic;
     font-weight: 700;
-    src: local('Odudo Slab'), url('${
-      type.fonts.OdudoSlabBoldOblique
-    }') format('woff2');
+    src: url('${type.fonts.OdudoSlabBoldOblique}') format('woff2');
   }
   @font-face {
-    font-family: 'Odudo Slab';
+    font-family: '${type.families.display}';
     font-style: normal;
     font-weight: 600;
-    src: local('Odudo Slab'), url('${
-      type.fonts.OdudoSlabSemiBold
-    }') format('woff2');
+    src: url('${type.fonts.OdudoSlabSemiBold}') format('woff2');
   }
   @font-face {
-    font-family: 'Odudo Slab';
+    font-family: '${type.families.display}';
     font-style: italic;
     font-weight: 600;
-    src: local('Odudo Slab'), url('${
-      type.fonts.OdudoSlabSemiBoldOblique
-    }') format('woff2');
+    src: url('${type.fonts.OdudoSlabSemiBoldOblique}') format('woff2');
   }
     @font-face {
-    font-family: 'Odudo Slab';
+    font-family: '${type.families.display}';
     font-style: normal;
     font-weight: 400;
-    src: local('Odudo Slab'), url('${
-      type.fonts.OdudoSlabRegular
-    }') format('woff2');
+    src: url('${type.fonts.OdudoSlabRegular}') format('woff2');
   }
   @font-face {
-    font-family: 'Odudo Slab';
+    font-family: '${type.families.display}';
     font-style: italic;
     font-weight: 400;
-    src: local('Odudo Slab'), url('${
-      type.fonts.OdudoSlabRegularOblique
-    }') format('woff2');
+    src: url('${type.fonts.OdudoSlabRegularOblique}') format('woff2');
   }
     @font-face {
-    font-family: 'Odudo Slab';
+    font-family: '${type.families.display}';
     font-style: normal;
     font-weight: 100;
-    src: local('Odudo Slab'), url('${
-      type.fonts.OdudoSlabLight
-    }') format('woff2');
+    src: url('${type.fonts.OdudoSlabLight}') format('woff2');
   }
   @font-face {
-    font-family: 'Odudo Slab';
+    font-family: '${type.families.display}';
     font-style: italic;
     font-weight: 700;
-    src: local('Odudo Slab'), url('${
-      type.fonts.OdudoSlabLightOblique
-    }') format('woff2');
+    src: url('${type.fonts.OdudoSlabLightOblique}') format('woff2');
   }
 `
 
@@ -107,14 +97,20 @@ const Layout = ({ children }) => (
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            {
+              name: 'description',
+              content: 'Anders Rubini - Personal Trainer and Nutrition Coach',
+            },
+            {
+              name: 'keywords',
+              content: 'fitness, nutrition, health, flexibility, mobility',
+            },
           ]}
-        >
-          <html lang="en" />
+        />
+        <>
           <GlobalStyles />
-        </Helmet>
-        <PageContainer>{children}</PageContainer>
+          <PageContainer>{children}</PageContainer>
+        </>
       </>
     )}
   />

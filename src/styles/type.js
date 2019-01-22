@@ -9,8 +9,8 @@ import OdudoSlabSemiBold from 'assets/fonts/OdudoSlab-SemiBold.woff2'
 import OdudoSlabSemiBoldOblique from 'assets/fonts/OdudoSlab-SemiBoldOblique.woff2'
 
 const families = {
-  display: 'Odudo Slab',
-  body: 'Airbnb Cereal App',
+  display: 'Web Odudo Slab',
+  body: 'Web Airbnb Cereal App',
 }
 
 const weights = {
